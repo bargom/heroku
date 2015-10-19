@@ -5,7 +5,12 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-  response.send('<h1>Hello World! I am running on heroku. <a href="barisFBTest://auth/#state=123456789">Click here for barisFBTest</a><br /><a href="beanrealm123://auth/#state=123456789">Click here for beanrealm123</a><br /><a href="bean-realm.pro.nl-be://auth/#state=123456789">Click here for bean-realm.pro.nl-be</a></h1>');
+  var text = '<h1>Hello World! I am running on heroku. <a href="barisFBTest://auth/#state=123456789">Click here for barisFBTest</a><br /><a href="beanrealm123://auth/#state=123456789">Click here for beanrealm123</a><br /><a href="bean-realm.pro.nl-be://auth/#state=123456789">Click here for bean-realm.pro.nl-be</a></h1>';
+  var headers = JSON.stringify(request.headers);
+  text += "<h2>request headers</h2><div>" + headers + "</div>";  
+  headers = JSON.stringify(response.headers);
+  text += "<h2>response headers</h2><div>" + headers + "</div>";  
+  response.send(text);
 });
 
 app.listen(app.get('port'), function() {
