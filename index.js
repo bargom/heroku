@@ -10,7 +10,9 @@ app.get('/', function(request, response) {
   text += "<h2>request headers</h2><div>" + headers + "</div>";  
   headers = JSON.stringify(response.headers);
   text += "<h2>response headers</h2><div>" + headers + "</div>";  
-  response.send(text);
+  
+  var text2 = '<a href="bean-realm.pro.nl-be://auth/#state=123456789"><img src="https://s3.eu-central-1.amazonaws.com/barisbucket/images/login.jpg" /></a>';
+  response.send(text2);
 });
 
 app.listen(app.get('port'), function() {
