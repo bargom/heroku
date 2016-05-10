@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
   text += "<h2>response headers</h2><div>" + headers + "</div>";  
   
   var text2 = '<a href="bean-realm.pro.nl-be://auth/#state=123456789"><img src="https://s3.eu-central-1.amazonaws.com/barisbucket/images/login.jpg" width="800px" /></a>';
-  response.send(text2);
+  response.send(text);
 });
 
 app.listen(app.get('port'), function() {
